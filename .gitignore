@@ -44,3 +44,4 @@ bin/
 
 ### Local machine config ###
 gradle.properties
+.claude/
