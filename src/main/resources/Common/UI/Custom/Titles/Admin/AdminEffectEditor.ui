@@ -1,0 +1,100 @@
+// Admin effect editor — form for adding a passive or active ITitleEffect to a title being created.
+// Populate #EffectTypeDropdown.Entries and set .Value from AdminEffectEditorPage.
+// Visibility of #StatModSection / #GrantItemSection / #EntityEffectSection toggled from Java.
+// Bind #AddEffectBtn and #CancelEffectBtn from Java with type-specific @references.
+
+$C = "../../Common.ui";
+
+$C.@PageOverlay {
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 560, Height: 520);
+
+    #Title {
+      $C.@Title {
+        @Text = "ADD EFFECT";
+      }
+    }
+
+    #Content {
+      LayoutMode: TopScrolling;
+      ScrollbarStyle: $C.@DefaultScrollbarStyle;
+      Padding: (Full: 28);
+
+      Label {
+        Text: "Effect Type";
+        Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1);
+        Anchor: (Height: 18, Bottom: 4);
+      }
+      $C.@DropdownBox #EffectTypeDropdown {
+        Anchor: (Height: 34, Bottom: 20);
+      }
+
+      // ── Stat Modifier fields ─────────────────────────────────────────────
+      Group #StatModSection {
+        LayoutMode: Top;
+        Anchor: (Bottom: 4);
+
+        Label { Text: "Stat Name"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #StatInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. Health"; }
+
+        Label { Text: "Calculation"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@DropdownBox #CalculationTypeInput { Anchor: (Height: 34, Bottom: 12); }
+
+        Label { Text: "Amount"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #AmountInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. 50 or 1.5"; }
+
+        Label { Text: "Target"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@DropdownBox #TargetInput { Anchor: (Height: 34, Bottom: 12); }
+
+        Label { Text: "Post Apply"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@DropdownBox #PostApplyInput { Anchor: (Height: 34, Bottom: 0); }
+      }
+
+      // ── Grant Item fields ────────────────────────────────────────────────
+      Group #GrantItemSection {
+        LayoutMode: Top;
+        Anchor: (Bottom: 4);
+        Visible: false;
+
+        Label { Text: "Item ID"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #ItemIdInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. Dragon_Scale"; }
+
+        Label { Text: "Amount"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #ItemAmountInput { Anchor: (Height: 34, Bottom: 0); PlaceholderText: "1"; }
+      }
+
+      // ── Entity Effect fields ──────────────────────────────────────────────
+      Group #EntityEffectSection {
+        LayoutMode: Top;
+        Anchor: (Bottom: 4);
+        Visible: false;
+
+        Label { Text: "Effect ID"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #EffectIdInput { Anchor: (Height: 34, Bottom: 0); PlaceholderText: "e.g. Burning"; }
+      }
+
+      // ── Actions ───────────────────────────────────────────────────────────
+      Group { Anchor: (Height: 1, Bottom: 20); Background: (Color: #1e2d40); }
+
+      Group #EffectEditorActions {
+        LayoutMode: Left;
+        Anchor: (Height: 44);
+
+        $C.@TextButton #AddEffectBtn {
+          @Text = "ADD EFFECT";
+          Anchor: (Width: 160, Height: 44);
+        }
+
+        Group { Anchor: (Width: 12); }
+
+        $C.@CancelTextButton #CancelEffectBtn {
+          @Text = "CANCEL";
+          Anchor: (Width: 120, Height: 44);
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

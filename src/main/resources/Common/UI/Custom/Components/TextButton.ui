@@ -1,0 +1,16 @@
+// TextButton - Reusable button with text overlay
+// Usage: Reference this component and set #ButtonText.Text via code
+
+Group #TextButtonRoot {
+    Anchor: (Full: 0);
+
+    Button #Button {
+        Anchor: (Full: 0);
+    }
+
+    Label #ButtonText {
+        Anchor: (Full: 0);
+        HitTestVisible: false;
+        Style: (FontSize: 12, TextColor: #ffffff, HorizontalAlignment: Center, VerticalAlignment: Center);
+    }
+}

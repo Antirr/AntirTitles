@@ -1,0 +1,75 @@
+items.Example_TitleGrantItem.name = Example Title Granting Item
+items.Example_TitleGrantItem.description = Example item granting the example title
+
+titles.wolf_slayer.name = Wolf Slayer
+titles.wolf_slayer.description = Awarded to those who have hunted wolves relentlessly across the wilds.
+titles.wolf_hunter.name = Wolf Hunter
+titles.wolf_hunter.description = A seasoned hunter who has tracked wolves across the wilderness.
+titles.wolf_master.name = Wolf Master
+titles.wolf_master.description = A legendary title bestowed upon those who have mastered the way of the wolf.
+
+titles.goblin_scout.name = Goblin Scout
+titles.goblin_scout.description = You've had your first encounters with goblin-kind.
+titles.goblin_hunter.name = Goblin Hunter
+titles.goblin_hunter.description = A seasoned fighter who has cut down goblins by the dozens.
+titles.goblin_slayer.name = Goblin Slayer
+titles.goblin_slayer.description = A relentless hunter feared throughout goblin encampments.
+titles.goblin_bane.name = Goblin Bane
+titles.goblin_bane.description = Legends among goblin-kind, spoken of as a name that brings fear.
+titles.goblin_nemesis.name = Goblin Nemesis
+titles.goblin_nemesis.description = A living nightmare to every goblin on Orbis.
+
+titles.bog_watcher.name = Bog Watcher
+titles.bog_watcher.description = You've ventured into boggart territory and come back to tell the tale.
+titles.bog_stalker.name = Bog Stalker
+titles.bog_stalker.description = A hunter of the marshes, adapted to the murk and mire.
+titles.bog_bane.name = Bog Bane
+titles.bog_bane.description = The boggarts' worst nightmare, a warrior who has cleansed countless bogs.
+
+titles.saurian_hunter.name = Saurian Hunter
+titles.saurian_hunter.description = One who has faced the ancient saurians and prevailed.
+titles.saurian_slayer.name = Saurian Slayer
+titles.saurian_slayer.description = A battle-hardened warrior who has taken down many of the ancient reptiles.
+titles.saurian_conqueror.name = Saurian Conqueror
+titles.saurian_conqueror.description = The saurians have met their match. A title borne by the mightiest of hunters.
+
+titles.angler.name = Angler
+titles.angler.description = A patient soul who has spent time fishing the waters of Orbis.
+titles.sea_angler.name = Sea Angler
+titles.sea_angler.description = Comfortable in deep waters, an experienced fisher of the open seas.
+titles.master_angler.name = Master Angler
+titles.master_angler.description = A legendary title for those who have mastered the art of fishing across Orbis.
+
+titles.quarryman.name = Quarryman
+titles.quarryman.description = A miner who has broken their first stones in search of ore.
+titles.miner.name = Miner
+titles.miner.description = A hardened worker of the deep, at home beneath the surface.
+titles.master_miner.name = Master Miner
+titles.master_miner.description = A living legend of the underground, who has stripped mountains bare.
+
+titles.dragon_touched.name = Dragon Touched
+titles.dragon_touched.description = One who has handled the scale of a dragon and lived to keep it.
+titles.archaeologist.name = Archaeologist
+titles.archaeologist.description = A seeker of ancient things, who has unearthed a relic of the old world.
+titles.relic_bearer.name = Relic Bearer
+titles.relic_bearer.description = A keeper of forgotten history, custodian of artifacts that predate Orbis itself.
+
+titles.explorer.name = Explorer
+titles.explorer.description = Wanderer and discoverer, never content to stay in one place.
+titles.cartographer.name = Cartographer
+titles.cartographer.description = A meticulous traveller who has charted the breadth of Orbis.
+titles.artisan.name = Artisan
+titles.artisan.description = A skilled craftsperson whose hands have shaped a hundred different creations.
+titles.weaponsmith.name = Weaponsmith
+titles.weaponsmith.description = A master of the forge, who has crafted many blades and bows for adventurers.
+
+ui.titles.earned = New Title Unlocked
+ui.titles.removed = Title Removed
+ui.titles.equipped = Equipped
+ui.titles.unequipped = Unequipped
+ui.titles.synergyActivated = Synergy Activated!
+ui.titles.alreadyHave = You already have that title.
+ui.titles.notLearned = Title not in your collection.
+ui.titles.alreadyEquipped = That title is already equipped.
+ui.titles.noSlot = No equip slot available.
+ui.titles.browserTitle = Your Titles

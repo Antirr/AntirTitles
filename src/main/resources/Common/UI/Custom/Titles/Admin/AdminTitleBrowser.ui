@@ -1,0 +1,69 @@
+// Admin title browser — lists all titles and lets admins create new ones.
+// Opened with /title admin command (requires antirtitles.admin permission).
+
+$C = "../../Common.ui";
+
+$C.@PageOverlay {
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 820, Height: 660);
+
+    #Title {
+      $C.@Title {
+        @Text = "TITLE ADMIN";
+      }
+    }
+
+    #Content {
+      LayoutMode: TopScrolling;
+      ScrollbarStyle: $C.@DefaultScrollbarStyle;
+      Padding: (Full: 28);
+
+      // ── Create / list header ─────────────────────────────────────────────
+      Group #ListHeaderRow {
+        LayoutMode: Left;
+        Anchor: (Height: 44, Bottom: 16);
+
+        Label {
+          Text: "ALL TITLES";
+          Style: (FontSize: 13, TextColor: #8fa0b4, RenderBold: true, RenderUppercase: true, LetterSpacing: 1, VerticalAlignment: Center);
+          FlexWeight: 1;
+        }
+
+        $C.@TextButton #CreateTitleButton { @Text = "NEW TITLE"; Anchor: (Width: 160, Height: 44); }
+      }
+
+      Group {
+        Anchor: (Height: 1, Bottom: 20);
+        Background: (Color: #1e2d40);
+      }
+
+      // ── Title list — two-column grid, entries appended from AdminTitleBrowserPage ──
+      Group #AdminTitleCardListOuter {
+        LayoutMode: TopScrolling;
+        ScrollbarStyle: $C.@DefaultScrollbarStyle;
+        Background: (Color: #080f18);
+        Padding: (Full: 10);
+        Anchor: (Height: 460);
+
+        Group #AdminTitleCardList {
+          LayoutMode: Left;
+
+          Group #CardColumnLeft {
+            FlexWeight: 1;
+            LayoutMode: Top;
+          }
+
+          Group { Anchor: (Width: 8); }
+
+          Group #CardColumnRight {
+            FlexWeight: 1;
+            LayoutMode: Top;
+          }
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

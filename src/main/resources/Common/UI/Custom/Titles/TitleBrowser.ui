@@ -1,0 +1,146 @@
+// Title browser — game-style split-pane page.
+// Left panel: scrollable card list (#TitleCardList).
+// Right panel: detail view populated on card click.
+// Opened via TitleBrowserPage → player.getPageManager().openCustomPage()
+
+$C = "../Common.ui";
+
+$C.@PageOverlay {
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 880, Height: 580);
+
+    #Title {
+      $C.@Title {
+        @Text = "TITLES";
+      }
+    }
+
+    #Content {
+      LayoutMode: Left;
+      Padding: (Full: 0);
+
+      // ── Left panel — scrollable card list ────────────────────────────────
+      Group #TitleBrowserLeft {
+        Anchor: (Width: 300);
+        LayoutMode: Top;
+        Padding: (Full: 20);
+
+        Group #TitleBrowserHeader {
+          Anchor: (Height: 24, Bottom: 6);
+
+          Label #BrowserTitle {
+            Style: (FontSize: 15, RenderBold: true, TextColor: #bfd4e8, VerticalAlignment: Center);
+          }
+        }
+
+        Label #BrowserSubtitle {
+          Style: (FontSize: 10, TextColor: #566070, RenderUppercase: true, LetterSpacing: 1);
+          Anchor: (Bottom: 14);
+        }
+
+        Group #TitleBrowserDivider {
+          Anchor: (Height: 1, Bottom: 14);
+          Background: (Color: #1e2d40);
+        }
+
+        Group #TitleCardList {
+          LayoutMode: TopScrolling;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          Anchor: (Height: 400);
+        }
+      }
+
+      // ── Vertical divider ──────────────────────────────────────────────────
+      Group {
+        Anchor: (Width: 1);
+        Background: (Color: #1e2d40);
+      }
+
+      // ── Right panel — title detail ────────────────────────────────────────
+      Group #TitleDetailPanel {
+        LayoutMode: Top;
+        Padding: (Full: 28, Bottom: 20);
+        FlexWeight: 1;
+
+        Label #DetailEmpty {
+          Text: "SELECT A TITLE TO VIEW DETAILS";
+          Style: (FontSize: 10, TextColor: #38435a, RenderUppercase: true, LetterSpacing: 2,
+                  HorizontalAlignment: Center, VerticalAlignment: Center);
+          Anchor: (Bottom: 12);
+        }
+
+        // Rarity row: 5px accent bar + rarity label
+        Group #DetailRarityRow {
+          LayoutMode: Left;
+          Anchor: (Height: 18, Bottom: 8);
+
+          Group #DetailRarityBadge {
+            Anchor: (Width: 5);
+            // Filled dynamically from Java via builder.appendInline
+          }
+
+          Label #DetailRarity {
+            Style: (FontSize: 10, RenderUppercase: true, LetterSpacing: 2, VerticalAlignment: Center);
+            Anchor: (Left: 10);
+          }
+        }
+
+        Label #DetailName {
+          Style: (FontSize: 20, RenderBold: true, TextColor: #e4edf8);
+          Anchor: (Bottom: 8);
+        }
+
+        Label #DetailDescription {
+          Style: (FontSize: 12, TextColor: #8fa8c0(0.9), Wrap: true);
+          Anchor: (Bottom: 20);
+        }
+
+        Group {
+          Anchor: (Height: 1, Bottom: 18);
+          Background: (Color: #1e2d40);
+        }
+
+        Label #DetailPassiveHeader {
+          Style: (FontSize: 10, RenderBold: true, TextColor: #566070, RenderUppercase: true, LetterSpacing: 1);
+          Anchor: (Bottom: 6);
+        }
+
+        // Effect rows injected at runtime via appendInline per effect
+        Group #DetailPassiveEffects {
+          LayoutMode: Top;
+          Anchor: (Bottom: 16);
+        }
+
+        Label #DetailActiveHeader {
+          Style: (FontSize: 10, RenderBold: true, TextColor: #566070, RenderUppercase: true, LetterSpacing: 1);
+          Anchor: (Bottom: 6);
+        }
+
+        Group #DetailActiveEffects {
+          LayoutMode: Top;
+          Anchor: (Bottom: 28);
+        }
+
+        Group #DetailActions {
+          LayoutMode: Left;
+          Anchor: (Height: 44);
+
+          $C.@TextButton #EquipButton {
+            @Text = "EQUIP";
+            Anchor: (Width: 140, Height: 44);
+          }
+
+          Group { Anchor: (Width: 12); }
+
+          $C.@CancelTextButton #UnequipButton {
+            @Text = "UNEQUIP";
+            Anchor: (Width: 140, Height: 44);
+          }
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

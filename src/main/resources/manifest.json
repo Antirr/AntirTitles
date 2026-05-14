@@ -1,0 +1,19 @@
+{
+  "Group": "me.antir",
+  "Name": "AntirTitles",
+  "Version": "0.1",
+  "Description": "A Title framework for Hytale",
+  "Authors": [
+    {
+      "Name": "Antir"
+    }
+  ],
+  "Website": "",
+  "ServerVersion": "<0.6.0",
+  "Dependencies": {
+  },
+  "OptionalDependencies": {},
+  "DisabledByDefault": false,
+  "Main": "me.antir.TitlesModule",
+  "IncludesAssetPack": true
+}

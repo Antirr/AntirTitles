@@ -1,0 +1,131 @@
+@LeftNavButton = MenuItem {
+  Anchor: (Height: 36);
+  Padding: (Left: 16, Right: 16);
+
+  Style: (
+    Default: (
+      LabelStyle: (
+        FontSize: 14,
+        TextColor: #6e7da1,
+        VerticalAlignment: Center,
+        RenderBold: true
+      )
+    ),
+    Hovered: (
+      Background: #121a26,
+      LabelStyle: (
+        FontSize: 14,
+        TextColor: #ffffff,
+        VerticalAlignment: Center,
+        RenderBold: true
+      )
+    )
+  );
+
+  SelectedStyle: (
+    Default: (
+      Background: #121a26,
+      LabelStyle: (
+        FontSize: 14,
+        TextColor: #ffffff,
+        VerticalAlignment: Center,
+        RenderBold: true
+      )
+    )
+  );
+};
+
+@LeftNavigationPanel = Group {
+  Anchor: (Width: 180, Left: 7, Bottom: 7);
+  Background: #0a1119(0.95);
+  LayoutMode: Top;
+  Padding: (Top: 16, Bottom: 16);
+
+  // ---- Header ----
+  Group {
+    LayoutMode: Top;
+    Padding: (Left: 16, Right: 16);
+
+    Label {
+      Text: "Jujutsu Hytale";
+      Anchor: (Height: 30);
+      Style: (
+        FontSize: 24,
+        TextColor: #4a5568,
+        RenderBold: true,
+        LetterSpacing: 2
+      );
+    }
+  }
+
+  Group { Anchor: (Height: 20); }
+
+  // ---- NAV ITEMS ----
+  Group #NavButtons {
+    LayoutMode: Top;
+
+    @LeftNavButton #NavigateOverview {
+      Text: "PROFILE";
+    }
+
+    @LeftNavButton #NavTechnique {
+      Text: "TECHNIQUE";
+    }
+
+    @LeftNavButton #NavigateAbilities {
+      Text: "ABILITIES";
+    }
+
+    @LeftNavButton #NavMasteries {
+      Text: "MASTERIES";
+    }
+
+    @LeftNavButton #NavSkillTree {
+      Text: "SKILL TREE";
+    }
+
+    @LeftNavButton #NavAttributes {
+      Text: "ATTRIBUTES";
+    }
+
+    @LeftNavButton #NavAchievements {
+      Text: "ACHIEVEMENTS";
+    }
+
+    @LeftNavButton #NavLoadout {
+      Text: "LOADOUT";
+    }
+
+    @LeftNavButton #NavTitles {
+      Text: "TITLES";
+    }
+
+    @LeftNavButton #NavAppearance {
+      Text: "APPEARANCE";
+    }
+
+    @LeftNavButton #NavVows {
+      Text: "VOWS";
+    }
+
+    Group { Anchor: (Height: 24); }
+
+    @LeftNavButton #NavParty {
+      Text: "PARTY";
+    }
+  }
+
+  Group { FlexWeight: 1; }
+
+  // ---- Footer ----
+  Label #NavVersion {
+    Text: "v?.?";
+    Anchor: (Height: 20);
+    Padding: (Left: 16);
+    Style: (FontSize: 10, TextColor: #4a5568);
+  }
+
+  @LeftNavButton #NavSettings {
+    Text: "SETTINGS";
+  }
+};

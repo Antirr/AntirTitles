@@ -1,0 +1,48 @@
+// Clickable title card for the browser list.
+// After appending to #TitleCardList, populate index [n] with:
+//   builder.set("[n] #TitleCardName.Text",    title.getDisplayName())
+//   builder.set("[n] #TitleCardRarity.Text",  rarityId or "")
+//   builder.set("[n] #TitleCardEquipped.Text","Equipped" or "")
+//   builder.appendInline("[n] #TitleCardAccent", ColorUtil.colorFillDoc(hexColor))
+// Bind Activating on "[n]" with EventData(Action="select", TitleId=...)
+
+Button #TitleCard {
+  Anchor: (Height: 62, Bottom: 4);
+  LayoutMode: Left;
+  Style: (
+    Default: (Background: #0e1924),
+    Hovered: (Background: #172436),
+    Pressed: (Background: #1b2c40)
+  );
+
+  // Accent bar — filled with rarity color at runtime via appendInline
+  Group #TitleCardAccent {
+    Anchor: (Width: 5);
+  }
+
+  Group #TitleCardBody {
+    LayoutMode: Top;
+    Padding: (Left: 14, Top: 12, Bottom: 12, Right: 10);
+    FlexWeight: 1;
+
+    Label #TitleCardName {
+      Style: (FontSize: 13, RenderBold: true, TextColor: #d8e4f0);
+      Anchor: (Bottom: 6);
+    }
+
+    Group #TitleCardMeta {
+      LayoutMode: Left;
+      Anchor: (Height: 14);
+
+      Label #TitleCardRarity {
+        // Color set at runtime via builder.set(".TextSpans", Message.raw(rarity).color(awtColor))
+        Style: (FontSize: 10, RenderUppercase: true, LetterSpacing: 1);
+      }
+
+      Label #TitleCardEquipped {
+        Style: (FontSize: 10, RenderBold: true, TextColor: #5ab08e, RenderUppercase: true);
+        Anchor: (Right: 0);
+      }
+    }
+  }
+}

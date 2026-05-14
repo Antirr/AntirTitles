@@ -1,0 +1,32 @@
+// Generic pending-item row used for effects and requirements in the admin editor.
+// After appending, populate via:
+//   builder.set("#List[n] #RowDesc.Text", description)
+// and bind:
+//   eventBuilder on "#List[n] #RemoveBtn" with EventData(Action="removeEffect/removeRequirement", ...)
+
+Group #PendingRow {
+  LayoutMode: Left;
+  Anchor: (Height: 28, Bottom: 3);
+  Background: (Color: #080f18);
+
+  Group { Anchor: (Width: 6); }
+
+  Label #RowDesc {
+    Style: (FontSize: 11, TextColor: #8fa0b4, VerticalAlignment: Center);
+    FlexWeight: 1;
+  }
+
+  Button #RemoveBtn {
+    Anchor: (Width: 70, Height: 28);
+    Style: (
+      Default: (Background: #2a1010),
+      Hovered: (Background: #3d1a1a),
+      Pressed: (Background: #1e0c0c)
+    );
+    Label {
+      Text: "REMOVE";
+      Style: (FontSize: 9, RenderBold: true, TextColor: #c85050, HorizontalAlignment: Center, VerticalAlignment: Center);
+      Anchor: (Full: 0);
+    }
+  }
+}

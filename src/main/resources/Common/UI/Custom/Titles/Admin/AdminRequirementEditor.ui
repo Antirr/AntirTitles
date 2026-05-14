@@ -1,0 +1,120 @@
+// Admin requirement editor — form for adding an ITitleRequirement to a title being created.
+// Populate #ReqTypeDropdown.Entries and set .Value from AdminRequirementEditorPage.
+// Visibility of sections toggled from Java based on selected type.
+// Bind #AddReqBtn and #CancelReqBtn from Java with type-specific @references.
+// TierProgress: populate #TierRemovePreviousInput.Entries with Yes/No from Java.
+
+$C = "../../Common.ui";
+
+$C.@PageOverlay {
+
+  $C.@DecoratedContainer {
+    Anchor: (Width: 540, Height: 520);
+
+    #Title {
+      $C.@Title {
+        @Text = "ADD REQUIREMENT";
+      }
+    }
+
+    #Content {
+      LayoutMode: TopScrolling;
+      ScrollbarStyle: $C.@DefaultScrollbarStyle;
+      Padding: (Full: 28);
+
+      Label {
+        Text: "Requirement Type";
+        Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1);
+        Anchor: (Height: 18, Bottom: 4);
+      }
+      $C.@DropdownBox #ReqTypeDropdown {
+        Anchor: (Height: 34, Bottom: 20);
+      }
+
+      // ── Kill Count fields ────────────────────────────────────────────────
+      Group #KillCountSection {
+        LayoutMode: Top;
+        Anchor: (Bottom: 4);
+
+        Label { Text: "NPC Type"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #NpcTypeInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. Wolf_Black"; }
+
+        Label { Text: "Count"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #KillCountInput { Anchor: (Height: 34, Bottom: 0); PlaceholderText: "100"; }
+      }
+
+      // ── Obtain Item fields ───────────────────────────────────────────────
+      Group #ObtainItemSection {
+        LayoutMode: Top;
+        Anchor: (Bottom: 4);
+        Visible: false;
+
+        Label { Text: "Item ID"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #ObtainItemIdInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. Dragon_Scale"; }
+
+        Label { Text: "Count"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #ObtainItemCountInput { Anchor: (Height: 34, Bottom: 0); PlaceholderText: "1"; }
+      }
+
+      // ── Activity Count fields ────────────────────────────────────────────
+      Group #ActivityCountSection {
+        LayoutMode: Top;
+        Anchor: (Bottom: 4);
+        Visible: false;
+
+        Label { Text: "Activity Key"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #ActivityInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. FishCaught"; }
+
+        Label { Text: "Count"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #ActivityCountInput { Anchor: (Height: 34, Bottom: 0); PlaceholderText: "50"; }
+      }
+
+      // ── Tier Progress fields ─────────────────────────────────────────────
+      Group #TierProgressSection {
+        LayoutMode: Top;
+        Anchor: (Bottom: 4);
+        Visible: false;
+
+        Label { Text: "Progress Key  (shared across tiers)"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #TierProgressKeyInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. WolfProgress"; }
+
+        Label { Text: "XP Required"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #TierXpRequiredInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "500"; }
+
+        Label { Text: "Previous Title ID  (optional — revoked on advance)"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #TierPrevTitleInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. WolfHunter"; }
+
+        Label { Text: "Kill NPC Types  (comma-separated, auto-grants XP)"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #TierKillNpcTypesInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "e.g. Wolf_Black,Wolf_White"; }
+
+        Label { Text: "XP Per Kill"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@TextField #TierXpPerKillInput { Anchor: (Height: 34, Bottom: 12); PlaceholderText: "10"; }
+
+        Label { Text: "Remove Previous Title on Advance"; Style: (FontSize: 11, TextColor: #7a9ab0, RenderUppercase: true, LetterSpacing: 1); Anchor: (Height: 18, Bottom: 4); }
+        $C.@DropdownBox #TierRemovePreviousInput { Anchor: (Height: 34, Bottom: 0); }
+      }
+
+      // ── Actions ───────────────────────────────────────────────────────────
+      Group { Anchor: (Height: 1, Bottom: 20); Background: (Color: #1e2d40); }
+
+      Group #ReqEditorActions {
+        LayoutMode: Left;
+        Anchor: (Height: 44);
+
+        $C.@TextButton #AddReqBtn {
+          @Text = "ADD REQUIREMENT";
+          Anchor: (Width: 190, Height: 44);
+        }
+
+        Group { Anchor: (Width: 12); }
+
+        $C.@CancelTextButton #CancelReqBtn {
+          @Text = "CANCEL";
+          Anchor: (Width: 120, Height: 44);
+        }
+      }
+    }
+  }
+}
+
+$C.@BackButton {}

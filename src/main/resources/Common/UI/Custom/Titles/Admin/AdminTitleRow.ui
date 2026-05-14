@@ -1,0 +1,7 @@
+// Container row for the two-column admin title grid.
+// Appended to #AdminTitleCardList by AdminTitleBrowserPage — two AdminTitleEntry cards inside.
+
+Group #AdminTitleRow {
+  LayoutMode: Left;
+  Anchor: (Bottom: 4);
+}

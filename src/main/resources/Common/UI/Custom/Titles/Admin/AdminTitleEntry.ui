@@ -1,0 +1,92 @@
+// One card in the two-column admin title grid.
+// FlexWeight: 1 makes two cards split a row evenly.
+// After appending (inside an AdminTitleRow), populate index [0] or [2] with:
+//   builder.set("[n] #EntryName.Text",      title.getDisplayName())
+//   builder.set("[n] #EntryId.Text",        title.getId())
+//   builder.set("[n] #EntryRarity.Text",    rarityId or "")
+//   builder.set("[n] #EntryRuntime.Visible",isRuntime)
+//   builder.set("[n] #EntryRemove.Visible", isRuntime)
+//   builder.appendInline("[n] #EntryAccent",ColorUtil.colorFillDoc(hexColor))
+// Bind Activating on "[n] #EntryLearn"  with EventData(Action="grant",  TitleId=...)
+// Bind Activating on "[n] #EntryRemove" with EventData(Action="delete", TitleId=...)
+
+Group #AdminTitleEntry {
+  Anchor: (Height: 52, Bottom: 4);
+  LayoutMode: Left;
+  Background: (Color: #0e1924);
+
+  // Rarity accent bar — colored via appendInline
+  Group #EntryAccent {
+    Anchor: (Width: 5);
+  }
+
+  // Name / rarity / id (all in one column)
+  Group #EntryText {
+    LayoutMode: Top;
+    Padding: (Left: 10, Top: 9, Bottom: 9);
+    FlexWeight: 1;
+
+    Label #EntryName {
+      Style: (FontSize: 12, RenderBold: true, TextColor: #d8e4f0);
+      Anchor: (Bottom: 3);
+    }
+
+    Group #EntryMeta {
+      LayoutMode: Left;
+      Anchor: (Height: 12);
+
+      Label #EntryRarity {
+        Style: (FontSize: 9, TextColor: #8fa0b4, RenderUppercase: true, LetterSpacing: 1);
+      }
+
+      Label #EntryId {
+        Style: (FontSize: 9, TextColor: #3a5060);
+        Anchor: (Left: 8);
+      }
+
+      Label #EntryRuntime {
+        Text: "[runtime]";
+        Style: (FontSize: 8, TextColor: #3a8a5a);
+        Anchor: (Left: 6);
+        Visible: false;
+      }
+    }
+  }
+
+  // Action buttons — ADD (always) and REMOVE (runtime titles only)
+  Group #EntryActions {
+    LayoutMode: Left;
+    Padding: (Right: 8, Top: 10, Bottom: 10);
+
+    Button #EntryLearn {
+      Anchor: (Width: 50, Height: 32);
+      Style: (
+        Default: (Background: #1a3d2c),
+        Hovered: (Background: #225040),
+        Pressed: (Background: #162e22)
+      );
+      Label {
+        Text: "ADD";
+        Style: (FontSize: 8, RenderBold: true, TextColor: #5ab08e, HorizontalAlignment: Center, VerticalAlignment: Center);
+        Anchor: (Full: 0);
+      }
+    }
+
+    Group { Anchor: (Width: 4); }
+
+    Button #EntryRemove {
+      Anchor: (Width: 64, Height: 32);
+      Visible: false;
+      Style: (
+        Default: (Background: #3d1a1a),
+        Hovered: (Background: #503030),
+        Pressed: (Background: #2e1616)
+      );
+      Label {
+        Text: "REMOVE";
+        Style: (FontSize: 8, RenderBold: true, TextColor: #c85050, HorizontalAlignment: Center, VerticalAlignment: Center);
+        Anchor: (Full: 0);
+      }
+    }
+  }
+}

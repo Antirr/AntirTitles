@@ -1,0 +1,43 @@
+@BgDark = #0a1119(0.95);
+@BgLight = #141c26(0.98);
+@BgInput = #1b2532;
+@TextPrimary = #ffffff;
+@TextSecondary = #96a9be;
+@TextAccent = #4a9eff;
+@Border = #2b3542;
+
+@ListItemButtonStyle = TextButtonStyle(
+    Default: (Background: #1b2532(0.5), LabelStyle: (FontSize: 14, TextColor: @TextPrimary, VerticalAlignment: Center)),
+    Hovered: (Background: #1b2532, LabelStyle: (FontSize: 14, TextColor: @TextPrimary, VerticalAlignment: Center)),
+    Pressed: (Background: #0e151e, LabelStyle: (FontSize: 14, TextColor: @TextSecondary, VerticalAlignment: Center))
+);
+
+@ListItemStyle = ButtonStyle(
+    Default: (Background: #1b2532(0.5)),
+    Hovered: (Background: #1b2532),
+    Pressed: (Background: #0e151e)
+);
+
+// Layout Templates
+@HeaderStyle = (
+    FontSize: 24,
+    TextColor: @TextPrimary,
+    RenderBold: true
+);
+
+@SubHeaderStyle = (
+    FontSize: 12,
+    TextColor: @TextSecondary,
+    RenderUppercase: true,
+    LetterSpacing: 2
+);
+
+@Divider = Group {
+    Anchor: (Height: 1);
+    Background: @Border;
+};
+
+@InputStyle = (
+    FontSize: 16,
+    TextColor: @TextPrimary
+);
